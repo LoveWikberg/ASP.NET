@@ -1,0 +1,102 @@
+﻿@model DisplayCreateVM
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="btn-group">
+    <button id="btnOne" data-toggle="collapse" align="center" class="btn btn-danger btn-sm" onclick='enableDisable("Two")' data-target="#ToggleShow">Show/hide cars</button>
+    <button id="btnTwo" data-toggle="collapse" align="center" class="btn btn-warning btn-sm" onclick='enableDisable("One")' data-target="#ToggleAdd">Add car</button>
+</div>
+<div id="ToggleShow" class="collapse">
+    <div class="container">
+        <h2>Our cars</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model.ListViewModels)
+                    {
+                @Html.Partial("CarBox", car)
+                    }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="ToggleAdd" class="collapse">
+    <div class="jumbotron text-center">
+
+
+        <h3>Add car</h3>
+        <form class="form-inline" asp-controller="Cars" asp-action="Create" enctype="multipart/form-data">
+            <label asp-for="FormViewModels.Brand"></label>
+            <br />
+            <input class="form-control" asp-for="FormViewModels.Brand" />
+            <span asp-validation-for="FormViewModels.Brand"></span>
+            <br />
+
+            <label asp-for="FormViewModels.Model"></label>
+            <br />
+            <input class="form-control" asp-for="FormViewModels.Model" />
+            <span asp-validation-for="FormViewModels.Model"></span>
+            <br />
+
+            <label asp-for="FormViewModels.TopSpeed"></label>
+            <br />
+            <input class="form-control" asp-for="FormViewModels.TopSpeed" />
+
+            <span asp-validation-for="FormViewModels.TopSpeed"></span>
+            <br />
+
+            <label asp-for="FormViewModels.Doors"></label>
+            <br />
+            <input class="form-control" asp-for="FormViewModels.Doors" />
+            <span asp-validation-for="FormViewModels.Doors"></span>
+            <br />
+
+            <input type="submit" class="btn btn-danger" value="Add super fantastic car" />
+        </form>
+    </div>
+</div>
+
+
+
+
+<blockquote align="center" class="blockquote">
+    <p class="mb-0">"Be smart - buy a car!"</p>
+    <footer class="blockquote-footer">Famous car salesman <cite title="Source Title">Alexander Holmberg</cite></footer>
+</blockquote>
+
+<script>
+    function enableDisable(button) {
+        var id = document.getElementById("btn" + button + "");
+
+        //Remove text that equals " collapsed" if it exists (replace it with nothing).
+        if (id.className.includes(" collapsed")) {
+            id.className = id.className.replace(" collapsed", "");
+        }
+
+        //Disables the other button(s) when a button is clicked to avoid excessive CSS-animation.
+        if (id.className == "btn btn-warning btn-sm" || id.className == "btn btn-danger btn-sm") {
+            id.className += " bg-primary disabled";
+            id.style.pointerEvents = 'none';
+        }
+
+        //Re-enables the other button(s) if the clicked button is clicked again.
+        else {
+            id.className = id.className.replace(" bg-primary disabled", "");
+            id.style.pointerEvents = 'auto';
+        }
+    }
+</script>
+
+
+@section scripts
+{
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+}

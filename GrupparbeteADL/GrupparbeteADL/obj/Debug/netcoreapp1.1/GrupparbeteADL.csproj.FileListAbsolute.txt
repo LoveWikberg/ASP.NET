@@ -1,0 +1,22 @@
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.deps.json
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.runtimeconfig.json
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.runtimeconfig.dev.json
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.dll
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.csprojResolveAssemblyReference.cache
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.AssemblyInfo.cs
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.pdb
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.dll
+c:\users\alexander holmberg\documents\visual studio 2017\Projects\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.pdb
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.deps.json
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.runtimeconfig.json
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.runtimeconfig.dev.json
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.dll
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\bin\Debug\netcoreapp1.1\GrupparbeteADL.pdb
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.csprojResolveAssemblyReference.cache
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.AssemblyInfo.cs
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.dll
+C:\Users\lovew\OneDrive\Dokument\Programmering\ASP.Net\LoveAlex\LoveAlex\GrupparbeteADL\GrupparbeteADL\obj\Debug\netcoreapp1.1\GrupparbeteADL.pdb

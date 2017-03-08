@@ -1,0 +1,23 @@
+﻿@model IEnumerable<OwnerIndexVM>
+@{
+    ViewBag.Title = "Owners";
+}
+
+<!-- PASCAL DET HÄR ÄR ONÖDIGT-->
+
+<div class="container">
+    <h2>Owners</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model)
+            {
+                @Html.Partial("OwnerBox", car)
+            }
+        </tbody>
+    </table>
+</div>

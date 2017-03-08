@@ -1,0 +1,48 @@
+﻿@model CarsEditVM
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <h2>Edit Car</h2>
+    <form asp-controller="Cars" asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="Brand"></label>
+            <input style="width: 200px;" class="form-control" asp-for="Brand" placeholder="Brand" />
+            <span asp-validation-for="Brand"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Model"></label>
+            <input style="width: 200px;" class="form-control" asp-for="Model" placeholder="Model" />
+            <span asp-validation-for="Model"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Doors"></label>
+            <input style="width: 200px;" class="form-control" asp-for="Doors" placeholder="Doors" />
+            <span asp-validation-for="Doors"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="TopSpeed"></label>
+            <input style="width: 200px;" class="form-control" asp-for="TopSpeed" placeholder="Top-speed" />
+            <span asp-validation-for="TopSpeed"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input style="width: 200px;" class="form-control" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+
+        </div>
+        <input type="submit" class="btn btn-default" value="Confirm changes" />
+    </form>
+</div>
+
+@section scripts
+{
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+}
