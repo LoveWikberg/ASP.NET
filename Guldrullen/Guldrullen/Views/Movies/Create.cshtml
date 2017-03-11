@@ -1,0 +1,30 @@
+﻿@model MoviesCreateVM
+@{ 
+    ViewBag.Title = "Create";
+}
+
+<h1> @ViewBag.Title </h1>
+
+<form asp-controller="movies" asp-action="create">
+    <label asp-for="Title"></label>
+    <br>
+    <input asp-for="Title" />
+    <span asp-validation-for="Title"></span>
+    <br>
+    <label asp-for="Length"></label>
+    <br>
+    <input asp-for="Length" />
+    <span asp-validation-for="Length"></span>
+    <br>
+    <label asp-for="Genre"></label>
+    <br>
+    <input asp-for="Genre" />
+    <span asp-validation-for="Genre"></span>
+    <br>
+    <br>
+    <input type="submit" value="Create movie"/>
+</form>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
