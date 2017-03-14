@@ -1,0 +1,15 @@
+﻿@model MovieShowVM
+
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Length min</td>
+    @if (Model.Rate == null)
+    {
+        <td>N/A</td>
+    }
+    else
+    {
+    <td>@Model.Rate</td>
+    }
+</tr>
+

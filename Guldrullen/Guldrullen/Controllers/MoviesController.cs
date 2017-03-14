@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Guldrullen.Models;
 using Guldrullen.Models.Entities;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Guldrullen.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +12,7 @@ namespace Guldrullen.Controllers
 {
     public class MoviesController : Controller
     {
+
         GuldrullenContext context;
 
         public MoviesController(GuldrullenContext context)
@@ -21,33 +21,62 @@ namespace Guldrullen.Controllers
         }
 
         // GET: /<controller>/
+        [HttpGet]
         public IActionResult Index()
         {
-            //MoviesIndexVM viewModel = new MoviesIndexVM();
-            //viewModel.Comfirmation = (string)TempData["Comfirmation"];
+            MovieDisplayVM viewModel = new MovieDisplayVM();
+            viewModel.Search = (string)TempData["Search"];
 
-            //var models = context.ListMovies();
-            //return View(models);
+            if (viewModel.Search == null)
+                viewModel.ListViewModels = context.ListMovies("");
+            else
+                viewModel.ListViewModels = context.ListMovies(viewModel.Search);
 
+            return View(viewModel);
+
+            #region Test (bra egentligen)
+            //else if (viewModel.DisplayAction)
+            //    viewModel.ListViewModels = context.ListMovies("Action");
+
+            //else if (viewModel.DisplayRomance)
+            //    viewModel.ListViewModels = context.ListMovies("Romance");
+            //context.ListMovies("Action").CopyTo(viewModel.ListViewModels, 0);
+            //context.ListMovies("Romance").CopyTo(viewModel.ListViewModels, 1);
+            //if (!viewModel.DisplayAction)
+            // Array.Copy(context.ListMovies("Romance"), viewModel.ListViewModels, context.ListMovies("Romance").Length);
+            // viewModel.ListViewModels = context.ListMovies("Action");
+            // if (!viewModel.DisplayAction)
+            //   Array.Copy(context.ListMovies("Action"), viewModel.ListViewModels, context.ListMovies("Action").Length);
+            #endregion
+        }
+
+        [HttpPost]
+        public IActionResult Index(MovieDisplayVM viewModel)
+        {
+            //MovieDisplayVM viewModel = new MovieDisplayVM();
+            TempData["Search"] = viewModel.Search;
+            return RedirectToAction(nameof(MoviesController.Index));
+        }
+
+        public IActionResult Review()
+        {
             return View();
         }
 
         [HttpGet]
         public IActionResult Create()
         {
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(MoviesCreateVM viewModel)
+        public IActionResult Create(MovieCreateVM viewModel)
         {
             if (!ModelState.IsValid)
-            {
                 return View(viewModel);
-            }
 
             context.AddMovie(viewModel);
-            //TempData["Comfirmation"] = "The movie has been added.";
             return RedirectToAction(nameof(MoviesController.Index));
         }
     }

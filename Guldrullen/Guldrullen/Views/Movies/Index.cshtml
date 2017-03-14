@@ -1,5 +1,49 @@
-﻿@{
+﻿@model MovieDisplayVM
+@{
     ViewBag.Title = "Home";
 }
 
-<h1> @ViewBag.Title </h1>
+<div class="container">
+
+    <form asp-controller="Movies" asp-action="Index">
+        <label asp-for="DisplayAction"></label>
+        <input asp-for="DisplayAction" />
+        <br />
+        <input asp-for="Search" />
+        <input type="submit" value="search" />
+    </form>
+</div>
+
+<div class="container">
+    <h2>Our Movies</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Length</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Search == null)
+            {
+                foreach (var movie in Model.ListViewModels)
+                {
+                    @Html.Partial("DisplayMovies", movie);
+                }
+            }
+            else if (Model.ListViewModels.Length > 0)
+            {
+                foreach (var movie in Model.ListViewModels)
+                {
+                    @Html.Partial("DisplayMovies", movie);
+                }
+            }
+            else
+            {
+                <p>No search result</p>
+            }
+
+        </tbody>
+    </table>
+</div>

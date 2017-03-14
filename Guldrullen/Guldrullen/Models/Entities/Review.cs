@@ -9,6 +9,7 @@ namespace Guldrullen.Models.Entities
         public int MovieId { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
+        public int Rate { get; set; }
 
         public virtual Movie Movie { get; set; }
     }

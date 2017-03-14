@@ -5,18 +5,42 @@
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="~/css/StyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        /*Om man vill fixa navbar*/
+        .navbar-inverse{
+          
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <!-- Navbar-->
-    <a asp-controller="movies" asp-action="index"> Home </a>
-    <a asp-controller="movies" asp-action="create"> Add movie </a>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="~/css/guld.jpg" style="width:50px;height:50px" />
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a asp-controller="Movies" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Movies" asp-action="Create">Create</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
     <div>
         @RenderBody()
     </div>
+
+    @*<div class="navbar navbar-fixed-bottom">
+            &copy; Guldrullen AB
+        </div>*@
 
     <footer>
         &copy; Guldrullen AB

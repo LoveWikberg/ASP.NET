@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53224/movies/index",
+      "applicationUrl": "http://localhost:53224/movies",
       "sslPort": 0
     }
   },

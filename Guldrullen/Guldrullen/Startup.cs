@@ -21,11 +21,14 @@ namespace Guldrullen
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Guldrullen;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<GuldrullenContext>(o => o.UseSqlServer(connString));
             services.AddMvc();
+            services.AddSession();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Guldrullen.Models.Entities
 {
@@ -12,32 +13,51 @@ namespace Guldrullen.Models.Entities
 
         }
 
-        public void AddMovie(MoviesCreateVM viewModel)
+        public MovieShowVM[] ListMovies(string title)
+        {
+            var ret = Movie
+                .Include(m => m.Review)
+                .Select(m => new MovieShowVM
+                {
+                    Id = m.Id,
+                    Title = m.Title,
+                    Genre = m.Genre,
+                    Length = m.Length,
+                })
+            .Where(m => m.Title.Contains(title))
+            .OrderBy(m => m.Title)
+            .ToArray();
+
+            foreach (var movie in ret)
+            {
+                var ratings = this.Review
+                    .Where(o => o.MovieId == movie.Id)
+                    .Select(o => o.Rate)
+                    .ToArray();
+
+                if (ratings.Length > 0)
+                {
+                    movie.Rate = ratings
+                          .Average();
+                    if (movie.Rate.ToString().Length > 2)
+                        movie.Rate = double.Parse(movie.Rate.ToString().Remove(3));
+                }
+            }
+            return ret;
+        }
+
+
+        public void AddMovie(MovieCreateVM viewModel)
         {
             var movieToAdd = new Movie
             {
                 Title = viewModel.Title,
-                Genre = viewModel.Genre,
                 Length = viewModel.Length,
-                //Review = viewModel.Review? //Visste inte om den skulle ligga här eller i ListMovies - Pascal
+                Genre = viewModel.Genre,
             };
 
             Movie.Add(movieToAdd);
             SaveChanges();
-        }
-
-        // Får ett exception i Modellvyn där det säger att "pipelinen inte leder någonstans". 
-        // Är databasen kopplad till resten av funktionaliteten än?
-        public MoviesIndexVM[] ListMovies()
-        {
-            Movie movie = new Movie();
-            return Movie.Select(m => new MoviesIndexVM
-            {
-                Title = m.Title,
-                Length = m.Length,
-                Genre = m.Genre,
-                Review = m.Review,
-            }).OrderBy(m => m.Title).ToArray();
         }
     }
 }
