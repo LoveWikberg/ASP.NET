@@ -1,0 +1,11 @@
+﻿@model MovieReviewVM
+
+
+<h1>@Model.Title <button data-toggle="collapse" align="center" class="btn btn-warning btn-sm" data-target="#@Model.Title">See more</button> </h1>
+<div id="@Model.Title" class="collapse">
+    <div class="container">
+        <tbody>
+            @Model.Text
+        </tbody>
+    </div>
+</div>

@@ -79,9 +79,10 @@ namespace Guldrullen.Controllers
             return RedirectToAction(nameof(MoviesController.Index));
         }
 
-        public IActionResult Reviews()
+        public IActionResult Reviews(int id)
         {
-            return View();
+            var models = context.ListReviews(id);
+            return View(models);
         }
     }
 }

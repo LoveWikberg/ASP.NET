@@ -29,14 +29,14 @@
             {
                 foreach (var movie in Model.ListViewModels)
                 {
-                    @Html.Partial("DisplayMovies", movie);
+                    @Html.Partial("DisplayMovie", movie);
                 }
             }
             else if (Model.ListViewModels.Length > 0)
             {
                 foreach (var movie in Model.ListViewModels)
                 {
-                    @Html.Partial("DisplayMovies", movie);
+                    @Html.Partial("DisplayMovie", movie);
                 }
             }
             else

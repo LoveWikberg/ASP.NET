@@ -1,4 +1,9 @@
-﻿@model MovieReviewVM
+﻿@model MovieReviewVM[]
 @{
     ViewBag.Title = "Reviews";
+}
+
+@foreach (var review in Model)
+{
+    @Html.Partial("DisplayReview", review)
 }

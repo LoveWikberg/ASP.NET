@@ -58,5 +58,21 @@ namespace Guldrullen.Models.Entities
             Movie.Add(movieToAdd);
             SaveChanges();
         }
+
+
+        public MovieReviewVM[] ListReviews(int id)
+        {
+            var reviews = Review
+                .Where(c => c.MovieId == id)
+                .Select(m => new MovieReviewVM
+                {
+                    Title = m.Title,
+                    Text = m.Text,
+                    Rate = m.Rate,
+                }).ToArray();
+
+            return reviews;
+
+        }
     }
 }

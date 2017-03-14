@@ -12,6 +12,7 @@ namespace Guldrullen.Models
 
         public string Search { get; set; }
 
+
         public bool DisplayAction { get; set; }
         public bool DisplayComedy { get; set; }
         public bool DisplayRomance { get; set; }
