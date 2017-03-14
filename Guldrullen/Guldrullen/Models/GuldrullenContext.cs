@@ -62,17 +62,37 @@ namespace Guldrullen.Models.Entities
 
         public MovieReviewVM[] ListReviews(int id)
         {
+            //var movieTitle = Movie.SingleOrDefault(m => m.Id == id).Title;
             var reviews = Review
                 .Where(c => c.MovieId == id)
                 .Select(m => new MovieReviewVM
                 {
-                    Title = m.Title,
+                    ReviewTitle = m.Title,
                     Text = m.Text,
                     Rate = m.Rate,
+                    Id = m.Id,
+                    // Movie = movieTitle,
                 }).ToArray();
+
 
             return reviews;
 
+        }
+
+        public string GetMovie(int id)
+        {
+            string movieTitle = Movie.SingleOrDefault(m => m.Id == id).Title;
+            return movieTitle;
+        }
+
+        internal MovieShowVM GetMovieToShowOnReviewPage(int id)
+        {
+            var movie = Movie.SingleOrDefault(c => c.Id == id);
+            return new MovieShowVM
+            {
+                Title = movie.Title,
+                Id = movie.Id
+            };
         }
     }
 }

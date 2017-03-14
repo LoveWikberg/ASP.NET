@@ -81,8 +81,11 @@ namespace Guldrullen.Controllers
 
         public IActionResult Reviews(int id)
         {
-            var models = context.ListReviews(id);
-            return View(models);
+            var test = new MovieReviewAdvancedVM();
+            test.ListViewModels = context.ListReviews(id);
+            test.FormViewModel = context.GetMovieToShowOnReviewPage(id);
+
+            return View(test);
         }
     }
 }

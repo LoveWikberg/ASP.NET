@@ -1,9 +1,16 @@
-﻿@model MovieReviewVM[]
+﻿@model MovieReviewAdvancedVM
 @{
     ViewBag.Title = "Reviews";
 }
 
-@foreach (var review in Model)
-{
-    @Html.Partial("DisplayReview", review)
-}
+<img src="~/img/@(Model.FormViewModel.Id).jpg" width="120" height="150" alt="Image error"/>
+<h1>@Model.FormViewModel.Title</h1>
+
+<div class="container">
+    <div class="jumbotron ">
+        @foreach (var review in Model.ListViewModels)
+            {
+            @Html.Partial("DisplayReview", review)
+        }
+    </div>
+</div>

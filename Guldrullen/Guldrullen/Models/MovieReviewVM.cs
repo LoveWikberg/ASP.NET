@@ -7,7 +7,11 @@ namespace Guldrullen.Models
 {
     public class MovieReviewVM
     {
-        public string Title { get; set; }
+        public string MovieTitle { get; set; }
+
+        public int Id { get; set; }
+
+        public string ReviewTitle { get; set; }
 
         public string Text { get; set; }
 
