@@ -53,7 +53,6 @@ namespace Guldrullen.Controllers
         [HttpPost]
         public IActionResult Index(MovieDisplayVM viewModel)
         {
-            //MovieDisplayVM viewModel = new MovieDisplayVM();
             TempData["Search"] = viewModel.Search;
             return RedirectToAction(nameof(MoviesController.Index));
         }
@@ -78,6 +77,11 @@ namespace Guldrullen.Controllers
 
             context.AddMovie(viewModel);
             return RedirectToAction(nameof(MoviesController.Index));
+        }
+
+        public IActionResult Reviews()
+        {
+            return View();
         }
     }
 }

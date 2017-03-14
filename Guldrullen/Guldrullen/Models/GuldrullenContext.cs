@@ -16,7 +16,6 @@ namespace Guldrullen.Models.Entities
         public MovieShowVM[] ListMovies(string title)
         {
             var ret = Movie
-                .Include(m => m.Review)
                 .Select(m => new MovieShowVM
                 {
                     Id = m.Id,

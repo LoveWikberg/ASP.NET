@@ -22589,10 +22589,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Guldrullen\\Guldrullen\\Guldrullen.csproj",
+      "projectUniqueName": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\Guldrullen\\Guldrullen\\Guldrullen.csproj",
       "projectName": "Guldrullen",
-      "projectPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Guldrullen\\Guldrullen\\Guldrullen.csproj",
-      "outputPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Guldrullen\\Guldrullen\\obj\\",
+      "projectPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\Guldrullen\\Guldrullen\\Guldrullen.csproj",
+      "outputPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\Guldrullen\\Guldrullen\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -22608,7 +22608,7 @@
         "dependencies": {
           "Microsoft.AspNetCore": {
             "target": "Package",
-            "version": "[1.1.1, )"
+            "version": "1.1.1"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
