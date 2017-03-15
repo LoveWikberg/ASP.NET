@@ -3,14 +3,37 @@
     ViewBag.Title = "Reviews";
 }
 
-<img src="~/img/@(Model.FormViewModel.Id).jpg" width="120" height="150" alt="Image error"/>
-<h1>@Model.FormViewModel.Title</h1>
+<div class="container-fluid">
+    <h1>Reviews</h1>
+    <div class="row content">
+        <div class="col-sm-3 sidenav">           
+            <h3>@Model.FormViewModel.Title</h3>
+            <img src="~/img/@(Model.FormViewModel.Id).jpg" width="120" height="150" alt="Image error" />
+            <br />
+            @*<ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#section1">Home</a></li>
+                <li></li>
+                        <li><a href="#section2">Friends</a></li>
+                        <li><a href="#section3">Family</a></li>
+                        <li><a href="#section3">Photos</a></li>
+                    </ul><br>*@
+            @*<div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Blog..">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>*@
+        </div>
 
-<div class="container">
-    <div class="jumbotron ">
-        @foreach (var review in Model.ListViewModels)
+        <div class="col-sm-9">
+            <hr>
+            @foreach (var review in Model.ListViewModels)
             {
-            @Html.Partial("DisplayReview", review)
-        }
+                @Html.Partial("DisplayReview", review)
+            }
+
+        </div>
     </div>
 </div>

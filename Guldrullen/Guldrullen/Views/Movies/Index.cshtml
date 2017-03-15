@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Home";
 }
-
+<img src="~/img/Logomakr_7qm02q.png" width="1000" height="300" />
 <div class="container">
 
     <form asp-controller="Movies" asp-action="Index">
@@ -19,7 +19,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Brand</th>
+                <th>Movie</th>
                 <th>Length</th>
                 <th>Score</th>
             </tr>
@@ -29,21 +29,24 @@
             {
                 foreach (var movie in Model.ListViewModels)
                 {
-                    @Html.Partial("DisplayMovie", movie);
+            @Html.Partial("DisplayMovie", movie);
                 }
             }
             else if (Model.ListViewModels.Length > 0)
             {
                 foreach (var movie in Model.ListViewModels)
                 {
-                    @Html.Partial("DisplayMovie", movie);
+            @Html.Partial("DisplayMovie", movie);
                 }
             }
             else
             {
-                <p>No search result</p>
+            <p>No search result</p>
             }
 
         </tbody>
     </table>
 </div>
+
+
+

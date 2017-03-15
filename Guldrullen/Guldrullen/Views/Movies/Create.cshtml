@@ -1,20 +1,29 @@
 ﻿@model MovieCreateVM
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Create";
 }
 
 <form asp-controller="Movies" asp-action="Create">
-    <label asp-for="Title"></label>
-    <input asp-for="Title"/>
-    <span asp-validation-for="Title"></span>
-    <br />
-    <label asp-for="Length"></label>
-    <input asp-for="Length" />
-    <span asp-validation-for="Length"></span>
-    <br />
-    <label asp-for="Genre"></label>
-    <input asp-for="Genre" />
-    <span asp-validation-for="Genre"></span>
-    <br />
-    <input type="submit" value="Submit" />
+    <h2>Add movie</h2>
+    <table>
+        <tr>
+            <td><label asp-for="Title"></label></td>
+            <td><input asp-for="Title" /></td>
+            <td><span asp-validation-for="Title"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Length"></label></td>
+            <td><input asp-for="Length" /></td>
+            <td><span asp-validation-for="Length"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Genre"></label></td>
+            <td><input asp-for="Genre" /></td>
+            <td><span asp-validation-for="Genre"></span></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+
+    </table>
 </form>
