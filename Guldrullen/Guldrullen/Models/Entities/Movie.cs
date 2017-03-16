@@ -14,6 +14,7 @@ namespace Guldrullen.Models.Entities
         public string Title { get; set; }
         public int Length { get; set; }
         public string Genre { get; set; }
+        public string About { get; set; }
 
         public virtual ICollection<Review> Review { get; set; }
     }

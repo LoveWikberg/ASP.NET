@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Guldrullen.Models
 {
-    public class MovieReviewVM
+    public class MovieInfoVM
     {
         public string MovieTitle { get; set; }
 

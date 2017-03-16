@@ -38,8 +38,9 @@ namespace Guldrullen.Models.Entities
                 {
                     movie.Rate = ratings
                           .Average();
+
                     if (movie.Rate.ToString().Length > 2)
-                        movie.Rate = double.Parse(movie.Rate.ToString().Remove(3));
+                        movie.Rate = Math.Round(movie.Rate, 1);
                 }
             }
             return ret;
@@ -59,13 +60,29 @@ namespace Guldrullen.Models.Entities
             SaveChanges();
         }
 
+        public void AddReview(ReviewCreateVM viewModel, int id)
+        {
+            var movie = Movie.SingleOrDefault(c => c.Id == id);
 
-        public MovieReviewVM[] ListReviews(int id)
+            var reviewToAdd = new Review
+            {
+                Title = viewModel.Title,
+                Text = viewModel.Text,
+                Rate = viewModel.Rate,
+                MovieId = movie.Id,
+            };
+
+
+            Review.Add(reviewToAdd);
+            SaveChanges();
+        }
+
+        public MovieInfoVM[] ListReviews(int id)
         {
             //var movieTitle = Movie.SingleOrDefault(m => m.Id == id).Title;
             var reviews = Review
                 .Where(c => c.MovieId == id)
-                .Select(m => new MovieReviewVM
+                .Select(m => new MovieInfoVM
                 {
                     ReviewTitle = m.Title,
                     Text = m.Text,
@@ -79,20 +96,18 @@ namespace Guldrullen.Models.Entities
 
         }
 
-        public string GetMovie(int id)
-        {
-            string movieTitle = Movie.SingleOrDefault(m => m.Id == id).Title;
-            return movieTitle;
-        }
-
         internal MovieShowVM GetMovieToShowOnReviewPage(int id)
         {
             var movie = Movie.SingleOrDefault(c => c.Id == id);
             return new MovieShowVM
             {
                 Title = movie.Title,
+                InfoText = movie.About,
                 Id = movie.Id
             };
         }
+
+
+
     }
 }

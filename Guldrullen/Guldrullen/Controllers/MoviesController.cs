@@ -79,13 +79,26 @@ namespace Guldrullen.Controllers
             return RedirectToAction(nameof(MoviesController.Index));
         }
 
-        public IActionResult Reviews(int id)
+        [HttpGet]
+        public IActionResult Info(int id)
         {
-            var test = new MovieReviewAdvancedVM();
-            test.ListViewModels = context.ListReviews(id);
-            test.FormViewModel = context.GetMovieToShowOnReviewPage(id);
+            var viewModel = new MovieReviewAdvancedVM();
+            viewModel.ListViewModels = context.ListReviews(id);
+            viewModel.FormViewModel = context.GetMovieToShowOnReviewPage(id);
+            //test.CreateReview = context.GetMovieToShowOnReviewPage();
 
-            return View(test);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Info(ReviewCreateVM viewModel, int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(id);
+            }
+            context.AddReview(viewModel, id);
+            return RedirectToAction(nameof(MoviesController.Info));
         }
     }
 }

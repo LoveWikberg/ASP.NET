@@ -13,7 +13,7 @@ namespace Guldrullen.Models
         [Required(ErrorMessage = "*Required")]
         public string Title{ get; set; }
 
-        [Display(Name = "Lenth")]
+        [Display(Name = "Length")]
         [Required(ErrorMessage = "*Required")]
         public int Length{ get; set; }
 

@@ -10,10 +10,12 @@ namespace Guldrullen.Models
         public int Id { get; set; }
         public string Title { get; set; }
 
+        public string InfoText { get; set; }
+
         public string Genre { get; set; }
 
         public int Length { get; set; }
 
-        public double? Rate { get; set; }
+        public double Rate { get; set; }
     }
 }

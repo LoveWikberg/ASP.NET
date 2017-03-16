@@ -22506,10 +22506,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\LoveAlex\\LoveAlex\\GrupparbeteADL\\GrupparbeteADL\\GrupparbeteADL.csproj",
+      "projectUniqueName": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\GrupparbeteADL\\GrupparbeteADL\\GrupparbeteADL.csproj",
       "projectName": "GrupparbeteADL",
-      "projectPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\LoveAlex\\LoveAlex\\GrupparbeteADL\\GrupparbeteADL\\GrupparbeteADL.csproj",
-      "outputPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\LoveAlex\\LoveAlex\\GrupparbeteADL\\GrupparbeteADL\\obj\\",
+      "projectPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\GrupparbeteADL\\GrupparbeteADL\\GrupparbeteADL.csproj",
+      "outputPath": "C:\\Users\\lovew\\OneDrive\\Dokument\\Programmering\\ASP.Net\\Till Pascal\\ASP.NET\\GrupparbeteADL\\GrupparbeteADL\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
