@@ -1,4 +1,4 @@
-﻿@model MovieDisplayVM
+﻿@model MovieDisplayAdvancedVM
 @{
     ViewBag.Title = "Home";
 }
@@ -6,10 +6,7 @@
 <div class="container">
 
     <form asp-controller="Movies" asp-action="Index">
-        <label asp-for="DisplayAction"></label>
-        <input asp-for="DisplayAction" />
-        <br />
-        <input asp-for="Search" />
+        <input asp-for="SearchBox" />
         <input type="submit" value="search" />
     </form>
 </div>
@@ -25,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @if (Model.Search == null)
+            @if (Model.SearchBox == null)
             {
                 foreach (var movie in Model.ListViewModels)
                 {

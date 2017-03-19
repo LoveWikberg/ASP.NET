@@ -24,36 +24,21 @@ namespace Guldrullen.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            MovieDisplayVM viewModel = new MovieDisplayVM();
-            viewModel.Search = (string)TempData["Search"];
+            MovieDisplayAdvancedVM viewModel = new MovieDisplayAdvancedVM();
+            viewModel.SearchBox = (string)TempData["Search"];
 
-            if (viewModel.Search == null)
+            if (viewModel.SearchBox == null)
                 viewModel.ListViewModels = context.ListMovies("");
             else
-                viewModel.ListViewModels = context.ListMovies(viewModel.Search);
+                viewModel.ListViewModels = context.ListMovies(viewModel.SearchBox);
 
             return View(viewModel);
-
-            #region Test (bra egentligen)
-            //else if (viewModel.DisplayAction)
-            //    viewModel.ListViewModels = context.ListMovies("Action");
-
-            //else if (viewModel.DisplayRomance)
-            //    viewModel.ListViewModels = context.ListMovies("Romance");
-            //context.ListMovies("Action").CopyTo(viewModel.ListViewModels, 0);
-            //context.ListMovies("Romance").CopyTo(viewModel.ListViewModels, 1);
-            //if (!viewModel.DisplayAction)
-            // Array.Copy(context.ListMovies("Romance"), viewModel.ListViewModels, context.ListMovies("Romance").Length);
-            // viewModel.ListViewModels = context.ListMovies("Action");
-            // if (!viewModel.DisplayAction)
-            //   Array.Copy(context.ListMovies("Action"), viewModel.ListViewModels, context.ListMovies("Action").Length);
-            #endregion
         }
 
         [HttpPost]
-        public IActionResult Index(MovieDisplayVM viewModel)
+        public IActionResult Index(MovieDisplayAdvancedVM viewModel)
         {
-            TempData["Search"] = viewModel.Search;
+            TempData["Search"] = viewModel.SearchBox;
             return RedirectToAction(nameof(MoviesController.Index));
         }
 
@@ -86,6 +71,22 @@ namespace Guldrullen.Controllers
             viewModel.ListViewModels = context.ListReviews(id);
             viewModel.FormViewModel = context.GetMovieToShowOnReviewPage(id);
             //test.CreateReview = context.GetMovieToShowOnReviewPage();
+            viewModel.CreateReview = new ReviewCreateVM
+            {
+                Rates = new List<RoleVm>
+                 {
+                     new RoleVm {Id = 1, Rating = "1"},
+                     new RoleVm {Id = 2, Rating = "2"},
+                     new RoleVm {Id = 3, Rating = "3"},
+                     new RoleVm {Id = 4, Rating = "4"},
+                     new RoleVm {Id = 5, Rating = "5"},
+                     new RoleVm {Id = 6, Rating = "6"},
+                     new RoleVm {Id = 7, Rating = "7"},
+                     new RoleVm {Id = 8, Rating = "8"},
+                     new RoleVm {Id = 9, Rating = "9"},
+                     new RoleVm {Id = 10, Rating = "10"},
+                }
+            };
 
             return View(viewModel);
         }
@@ -93,12 +94,30 @@ namespace Guldrullen.Controllers
         [HttpPost]
         public IActionResult Info(ReviewCreateVM viewModel, int id)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return View(id);
+                return View(viewModel);
             }
             context.AddReview(viewModel, id);
             return RedirectToAction(nameof(MoviesController.Info));
         }
+
+        public IActionResult Edit(int id)
+        {
+            var model = context.GetMovieForEdit(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MovieEditVM viewModel, int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            context.EditMovie(viewModel, id);
+            return RedirectToAction(nameof(MoviesController.Index));
+        }
+
     }
 }

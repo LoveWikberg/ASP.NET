@@ -9,7 +9,7 @@ namespace Guldrullen.Models
     public class MovieReviewAdvancedVM
     {
         public MovieInfoVM[] ListViewModels { get; set; }
-        public MovieShowVM FormViewModel { get; set; }
+        public MovieDisplayVM FormViewModel { get; set; }
         public ReviewCreateVM CreateReview { get; set; }
     }
 }

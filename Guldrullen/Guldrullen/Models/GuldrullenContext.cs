@@ -13,10 +13,10 @@ namespace Guldrullen.Models.Entities
 
         }
 
-        public MovieShowVM[] ListMovies(string title)
+        public MovieDisplayVM[] ListMovies(string title)
         {
             var ret = Movie
-                .Select(m => new MovieShowVM
+                .Select(m => new MovieDisplayVM
                 {
                     Id = m.Id,
                     Title = m.Title,
@@ -54,6 +54,7 @@ namespace Guldrullen.Models.Entities
                 Title = viewModel.Title,
                 Length = viewModel.Length,
                 Genre = viewModel.Genre,
+                About = viewModel.About
             };
 
             Movie.Add(movieToAdd);
@@ -68,7 +69,7 @@ namespace Guldrullen.Models.Entities
             {
                 Title = viewModel.Title,
                 Text = viewModel.Text,
-                Rate = viewModel.Rate,
+                Rate = viewModel.SelectedRate,
                 MovieId = movie.Id,
             };
 
@@ -96,18 +97,41 @@ namespace Guldrullen.Models.Entities
 
         }
 
-        internal MovieShowVM GetMovieToShowOnReviewPage(int id)
+        internal MovieDisplayVM GetMovieToShowOnReviewPage(int id)
         {
             var movie = Movie.SingleOrDefault(c => c.Id == id);
-            return new MovieShowVM
+            return new MovieDisplayVM
             {
                 Title = movie.Title,
                 InfoText = movie.About,
-                Id = movie.Id
+                Id = movie.Id,
+                Trailer = movie.Trailer
             };
         }
 
+        public MovieEditVM GetMovieForEdit(int id)
+        {
+            var movie = Movie.SingleOrDefault(c => c.Id == id);
+            return new MovieEditVM
+            {
+                Title = movie.Title,
+                About = movie.About,
+                Genre = movie.Genre,
+                Length = movie.Length,
+                Trailer = movie.Trailer
+            };
+        }
 
+        public void EditMovie(MovieEditVM viewModel, int id)
+        {
+            var movie = Movie.SingleOrDefault(c => c.Id == id);
 
+            movie.Title = viewModel.Title;
+            movie.About = viewModel.About;
+            movie.Genre = viewModel.Genre;
+            movie.Length = viewModel.Length;
+            movie.Trailer = viewModel.Trailer;
+            SaveChanges();
+        }
     }
 }

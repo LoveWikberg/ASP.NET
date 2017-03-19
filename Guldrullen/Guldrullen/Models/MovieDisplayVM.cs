@@ -7,14 +7,18 @@ namespace Guldrullen.Models
 {
     public class MovieDisplayVM
     {
-        public MovieShowVM[] ListViewModels { get; set; }
-        public MovieCreateVM FormViewModels { get; set; }
+        public int Id { get; set; }
 
-        public string Search { get; set; }
+        public string Title { get; set; }
 
+        public string Trailer{ get; set; }
 
-        public bool DisplayAction { get; set; }
-        public bool DisplayComedy { get; set; }
-        public bool DisplayRomance { get; set; }
+        public string InfoText { get; set; }
+
+        public string Genre { get; set; }
+
+        public int Length { get; set; }
+
+        public double Rate { get; set; }
     }
 }

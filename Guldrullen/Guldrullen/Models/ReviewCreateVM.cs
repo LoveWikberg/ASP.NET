@@ -12,7 +12,10 @@ namespace Guldrullen.Models
     {
         [Display(Name = "Rate")]
         [Required(ErrorMessage = "*Required")]
-        public int Rate { get; set; }
+        public int SelectedRate { set; get; }
+        public IEnumerable<RoleVm> Rates { set; get; }
+        //public int Rate { get; set; }
+
 
         [Display(Name = "Title")]
         [MaxLength(50, ErrorMessage = "Only 50 character allowed")]
@@ -22,5 +25,11 @@ namespace Guldrullen.Models
         [Display(Name = "Text")]
         [MaxLength(500, ErrorMessage = "Only 500 character allowed")]
         public string Text { get; set; }
+    }
+
+    public class RoleVm
+    {
+        public int Id { set; get; }
+        public string Rating { set; get; }
     }
 }
