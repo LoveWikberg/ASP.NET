@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -29,5 +30,7 @@ namespace Guldrullen.Models
 
         [Display(Name = "Trailer")]
         public string Trailer { get; set; }
+
+        public IEnumerable<SelectListItem> Genres { get; set; }
     }
 }

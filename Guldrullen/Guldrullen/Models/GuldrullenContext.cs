@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Guldrullen.Models.Entities
 {
@@ -59,6 +60,31 @@ namespace Guldrullen.Models.Entities
 
             Movie.Add(movieToAdd);
             SaveChanges();
+        }
+
+        public IEnumerable<string> GetAllGenres()
+        {
+            return new List<string>
+            {
+                "Action",
+                "Comedy",
+                "Romance",
+            };
+        }
+
+        public IEnumerable<SelectListItem> GetSelectedListItem(IEnumerable<string> elements)
+        {
+            var selectedGenre = new List<SelectListItem>();
+
+            foreach (var element in elements)
+            {
+                selectedGenre.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectedGenre;
         }
 
         public void AddReview(ReviewCreateVM viewModel, int id)

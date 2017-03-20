@@ -50,13 +50,22 @@ namespace Guldrullen.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var genres = context.GetAllGenres();
 
-            return View();
+            var model = new MovieCreateVM();
+
+            model.Genres = context.GetSelectedListItem(genres);
+
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult Create(MovieCreateVM viewModel)
         {
+            var genres = context.GetAllGenres();
+
+            viewModel.Genres = context.GetSelectedListItem(genres);
+
             if (!ModelState.IsValid)
                 return View(viewModel);
 
